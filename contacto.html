@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bobinados Industriales - Contacto</title>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    body{
+      font-family:Arial,sans-serif;
+      background:#fff;
+      color:#222;
+    }
+
+    .logo-wrap{
+    margin:20px auto;
+    width:250px;
+    max-width:90%;
+    text-align:center;
+}
+
+.logo-wrap img{
+    width:100%;
+    max-width:250px;
+    height:auto;
+    display:block;
+    margin:auto;
+
+}
+    nav{
+      display:flex;
+      justify-content:center;
+      gap:24px;
+      margin:20px 0;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      background:#F5C000;
+      color:#222;
+      border-radius:50px;
+      padding:10px 40px;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    nav a:hover{
+      background:#e0b000;
+    }
+
+    .page-title{
+      text-align:center;
+      margin:30px 0;
+      font-size:32px;
+      color:#222;
+    }
+
+    .intro{
+      max-width:900px;
+      margin:0 auto 40px auto;
+      text-align:center;
+      line-height:1.8;
+      padding:0 20px;
+    }
+
+    .contacts-row{
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      flex-wrap:wrap;
+      margin-bottom:50px;
+      padding:0 20px;
+    }
+
+    .contact-item{
+      width:220px;
+      text-align:center;
+    }
+
+    .contact-icon{
+      font-size:30px;
+      margin-bottom:10px;
+    }
+
+    .contact-label{
+      border:1px solid #ccc;
+      border-radius:10px;
+      padding:12px;
+      min-height:80px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:14px;
+    }
+
+    .foto-contacto{
+      width:300px;
+      height:200px;
+      border:2px dashed #999;
+      margin:30px auto;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      color:#888;
+    }
+
+    .map-wrap{
+      margin:20px;
+      border:2px solid #F5C000;
+      border-radius:10px;
+      overflow:hidden;
+      height:350px;
+    }
+
+    iframe{
+      width:100%;
+      height:100%;
+      border:none;
+    }
+
+    footer{
+      background:#222;
+      color:white;
+      text-align:center;
+      padding:15px;
+      margin-top:30px;
+    }
+
+    @media(max-width:768px){
+      .contact-item{
+        width:100%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- LOGO -->
+  <div class="logo-wrap">
+    <img src="imagenes/1.jpg" alt="Logo Bobinados Industriales">
+  </div>
+
+  <!-- MENU -->
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <!-- TITULO -->
+  <h1 class="page-title">Contáctanos</h1>
+
+  <!-- DESCRIPCION -->
+  <div class="intro">
+    <p>
+      En Bobinados Industriales estamos comprometidos con brindar soluciones
+      confiables y eficientes para equipos industriales. Si desea solicitar una
+      cotización, mantenimiento o información sobre nuestros servicios, puede
+      comunicarse con nosotros a través de cualquiera de nuestros medios de contacto.
+    </p>
+  </div>
+
+
+
+  <!-- CONTACTOS -->
+  <div class="contacts-row">
+
+    <div class="contact-item">
+      <div class="contact-icon">📞</div>
+      <div class="contact-label">
+        5585356741<br>
+        7713889336
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-icon">✉️</div>
+      <div class="contact-label">
+        soluciones_integrales9368@yahoo.com
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-icon">📍</div>
+      <div class="contact-label">
+        Cerrada Francisco I. Madero, Lote 4,
+        Col. Atempa, Tizayuca, Hidalgo
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-icon">📘</div>
+      <div class="contact-label">
+        Bobinados Industriales Tizayuca
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-icon">💬</div>
+      <div class="contact-label">
+        +52 5585356741
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MAPA -->
+  <div class="map-wrap">
+    <iframe
+      src="https://maps.google.com/maps?q=Tizayuca,Hidalgo&t=&z=15&ie=UTF8&iwloc=&output=embed"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
+
+  <footer>
+    Bobinados Industriales | 50 años de experiencia | Tizayuca, Hidalgo
+  </footer>
+
+</body>
+</html>

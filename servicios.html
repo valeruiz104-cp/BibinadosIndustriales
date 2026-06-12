@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bobinados Industriales - Servicios</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#fff;
+    color:#222;
+}
+
+/* LOGO */
+.logo-wrap{
+    margin:20px auto;
+    width:250px;
+    max-width:90%;
+    text-align:center;
+}
+
+.logo-wrap img{
+    width:100%;
+    max-width:250px;
+    height:auto;
+    display:block;
+    margin:auto;
+}
+
+/* MENU */
+nav{
+    display:flex;
+    justify-content:center;
+    gap:24px;
+    margin:20px 0;
+    flex-wrap:wrap;
+}
+
+nav a{
+    background:#F5C000;
+    color:#222;
+    border-radius:50px;
+    padding:10px 40px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    background:#e0b000;
+}
+
+/* TITULO */
+.page-title{
+    text-align:center;
+    font-size:32px;
+    margin:30px 0;
+}
+
+/* DESCRIPCION */
+.description{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    line-height:1.8;
+    padding:0 20px;
+    margin-bottom:40px;
+}
+
+/* SERVICIOS */
+.services-section{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+.services-row{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+}
+
+.service-item{
+    width:180px;
+    text-align:center;
+}
+
+/* CIRCULOS DE IMAGEN */
+.service-circle{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    overflow:hidden;
+    border:3px solid #222;
+    margin:auto;
+}
+
+.service-circle img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.service-label{
+    background:#222;
+    color:white;
+    padding:10px;
+    margin-top:12px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* TEXTO */
+.services-text{
+    max-width:900px;
+    margin:40px auto;
+    text-align:justify;
+    line-height:1.8;
+    padding:0 20px;
+}
+
+/* BOTONES */
+.button-wrap{
+    text-align:center;
+    margin:20px;
+}
+
+.button{
+    background:#F5C000;
+    color:#222;
+    padding:12px 50px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.button:hover{
+    background:#e0b000;
+}
+
+/* FOOTER */
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:30px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+.service-circle{
+    width:120px;
+    height:120px;
+}
+
+.service-item{
+    width:140px;
+}
+
+.page-title{
+    font-size:28px;
+}
+
+.logo-wrap{
+    width:180px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- LOGO -->
+<div class="logo-wrap">
+    <img src="imagenes/1.jpg" alt="Logo Bobinados Industriales">
+</div>
+
+<!-- MENU -->
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="galeria.html">Galería</a>
+    <a href="contacto.html">Contacto</a>
+</nav>
+
+<!-- TITULO -->
+<h1 class="page-title">Nuestros Servicios</h1>
+
+<!-- DESCRIPCION -->
+<div class="description">
+    Bobinados Industriales cuenta con más de 50 años de experiencia ofreciendo
+    soluciones integrales para equipos industriales. Nuestro personal especializado
+    trabaja bajo altos estándares de calidad para garantizar seguridad,
+    eficiencia y confiabilidad en cada proyecto.
+</div>
+
+<!-- SERVICIOS -->
+<div class="services-section">
+
+    <!-- FILA 1 -->
+    <div class="services-row">
+
+        <div class="service-item">
+            <div class="service-circle">
+                <img src="imagenes/9.png" alt="Motores Industriales">
+            </div>
+            <div class="service-label">
+                Motores Industriales
+            </div>
+        </div>
+
+        <div class="service-item">
+            <div class="service-circle">
+                <img src="imagenes/8.png" alt="Bombas Sumergibles">
+            </div>
+            <div class="service-label">
+                Bombas Sumergibles
+            </div>
+        </div>
+
+        <div class="service-item">
+            <div class="service-circle">
+                <img src="imagenes/9.png" alt="Plantas de Emergencia">
+            </div>
+            <div class="service-label">
+                Plantas de Emergencia
+            </div>
+        </div>
+
+        <div class="service-item">
+            <div class="service-circle">
+                <img src="imagenes/10.png" alt="Módulos AMF">
+            </div>
+            <div class="service-label">
+                Módulos AMF
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FILA 2 -->
+    <div class="services-row">
+
+        <div class="service-item">
+            <div class="service-circle">
+                <img src="imagenes/11.png" alt="Elevadores">
+            </div>
+            <div class="service-label">
+                Elevadores
+            </div>
+        </div>
+
+        <div class="service-item">
+            <div class="service-circle">
+                <img src="imagenes/12.png" alt="Tableros de Control">
+            </div>
+            <div class="service-label">
+                Tableros de Control
+            </div>
+        </div>
+
+        <div class="service-item">
+            <div class="service-circle">
+                <img src="imagenes/13.png" alt="Alta y Baja Tensión">
+            </div>
+            <div class="service-label">
+                Alta y Baja Tensión
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- TEXTO -->
+<div class="services-text">
+
+<p>
+Nuestros servicios incluyen mantenimiento preventivo y correctivo,
+reparación de motores eléctricos, embobinado de motores industriales,
+instalación y mantenimiento de bombas sumergibles, reparación de plantas
+de emergencia, módulos de transferencia automática (AMF), elevadores y
+tableros de control.
+</p>
+
+<br>
+
+<p>
+Gracias a nuestra experiencia y compromiso con la calidad, ofrecemos
+soluciones eficientes que ayudan a mejorar el rendimiento y la vida útil
+de los equipos industriales de nuestros clientes.
+</p>
+
+</div>
+
+<!-- BOTONES -->
+<div class="button-wrap">
+    <a href="galeria.html" class="button">Ver Galería</a>
+</div>
+
+<div class="button-wrap">
+    <a href="contacto.html" class="button">Solicitar Información</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    Bobinados Industriales | RFC: SOVA570319SJ5 |
+    Más de 50 años de experiencia |
+    Tizayuca, Hidalgo
+</footer>
+
+</body>
+</html>
