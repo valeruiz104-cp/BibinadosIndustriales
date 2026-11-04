@@ -1,0 +1,602 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema Interactivo de Reportes de Baños</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f2f6f8;
+            color: #263238;
+            padding: 20px;
+        }
+
+        .contenedor {
+            max-width: 550px;
+            margin: auto;
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.10);
+        }
+
+        .encabezado {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .icono {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #1b964e;
+            font-size: 27px;
+        }
+
+        .subtitulo {
+            color: #689986;
+            margin-top: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .seccion {
+            margin-bottom: 24px;
+        }
+
+        .seccion h2 {
+            font-size: 17px;
+            margin-bottom: 12px;
+            color: #37474f;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        select,
+        textarea,
+        input[type="text"],
+        input[type="datetime-local"] {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #cfd8dc;
+            border-radius: 10px;
+            font-size: 15px;
+            background: white;
+            color: #263238;
+        }
+
+        select:focus,
+        textarea:focus,
+        input:focus {
+            border-color: #178746;
+            outline: 2px solid #d9f0f6;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .problemas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .problema {
+            border: 1px solid #d5dfe3;
+            border-radius: 12px;
+            padding: 14px 10px;
+            cursor: pointer;
+            text-align: center;
+            background: #fafcfd;
+            transition: 0.2s;
+            margin: 0;
+        }
+
+        .problema:hover {
+            border-color: #176b87;
+            background: #eef8fb;
+        }
+
+        .problema input {
+            margin-right: 5px;
+            accent-color: #176b87;
+        }
+
+        .problema:has(input:checked) {
+            border-color: #176b87;
+            background: #eef8fb;
+        }
+
+        .problema span {
+            font-weight: normal;
+        }
+
+        .problema input:checked + span {
+            color: #176b87;
+            font-weight: bold;
+        }
+
+        .ubicacion {
+            padding: 14px;
+            background: #eef8fb;
+            border: 1px solid #c9e4ed;
+            border-radius: 10px;
+            color: #178742;
+            font-weight: bold;
+        }
+
+        .foto {
+            border: 2px dashed #b0bec5;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            color: #608b6e;
+            background: #fafcfd;
+        }
+
+        .foto p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .foto input {
+            margin-top: 12px;
+            width: 100%;
+        }
+
+        .ayuda {
+            color: #718096;
+            font-size: 12px;
+            margin-top: 8px;
+            font-weight: normal;
+        }
+
+        .boton {
+            width: 100%;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            background: #178746;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .boton:hover {
+            background: #12566d;
+        }
+
+        .mensaje {
+            display: none;
+            margin-top: 18px;
+            padding: 15px;
+            border-radius: 10px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            text-align: center;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .pie {
+            text-align: center;
+            color: #90a4ae;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+
+        .logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.logos img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}
+
+@media (max-width: 400px) {
+    .logos img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+        @media (max-width: 400px) {
+            body {
+                padding: 10px;
+            }
+
+            .contenedor {
+                padding: 18px;
+            }
+
+            .problemas {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    
+
+<div class="contenedor">
+
+    <div class="logos">
+
+    <img src="Logo_de_la_UAEMex.svg.webp" alt="Logo de la universidad">
+
+    <img src="ico.png" alt="Segundo logo de la universidad">
+
+</div>
+
+    <div class="encabezado">
+        <div class="icono">🚻</div>
+
+        <h1>Reporte de Baños</h1>
+
+        <p class="subtitulo">
+            Ayúdanos a mantener los baños limpios,
+            seguros y en buenas condiciones.
+        </p>
+    </div>
+
+    
+
+
+    <form id="formulario">
+
+        <!-- 1. Tipo de usuario -->
+        <div class="seccion">
+
+            <h2>1. Tipo de usuario</h2>
+
+            <select id="usuario" name="usuario" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Alumno">Alumno</option>
+                <option value="Profesor">Profesor</option>
+                <option value="Administrativo">Administrativo</option>
+            </select>
+
+        </div>
+
+        <!-- 2. Tipo de baño -->
+        <div class="seccion">
+
+            <h2>2. Tipo de baño</h2>
+
+            <select id="tipoBaño" name="tipoBaño" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Hombres">Baño de hombres</option>
+                <option value="Mujeres">Baño de mujeres</option>
+            </select>
+
+        </div>
+
+        <!-- 3. Ubicación fija -->
+        <div class="seccion">
+
+            <h2>3. Ubicación</h2>
+
+            <div class="ubicacion">
+                📍 Edificio C
+            </div>
+
+        </div>
+
+        <!-- 4. Fecha y hora -->
+        <div class="seccion">
+
+            <h2>4. Fecha y hora del reporte</h2>
+
+            <input
+                type="datetime-local"
+                id="fechaHora"
+                name="fechaHora"
+                required
+            >
+
+        </div>
+
+        <!-- 5. Problemas -->
+        <div class="seccion">
+
+            <h2>5. ¿Qué problemas encontraste?</h2>
+
+            <p class="ayuda" style="margin-bottom: 12px;">
+                Puedes seleccionar uno o varios problemas.
+            </p>
+
+            <div class="problemas">
+
+                <label class="problema">
+                    <input
+                        type="checkbox"
+                        name="problemas"
+                        value="Baño sucio"
+                    >
+                    <span>🧹 Baño sucio</span>
+                </label>
+
+                <label class="problema">
+                    <input
+                        type="checkbox"
+                        name="problemas"
+                        value="Falta de agua"
+                    >
+                    <span>💧 Falta de agua</span>
+                </label>
+
+                <label class="problema">
+                    <input
+                        type="checkbox"
+                        name="problemas"
+                        value="Falta de papel"
+                    >
+                    <span>🧻 Falta de papel</span>
+                </label>
+
+                <label class="problema">
+                    <input
+                        type="checkbox"
+                        name="problemas"
+                        value="Baño dañado"
+                    >
+                    <span>🔧 Baño dañado</span>
+                </label>
+
+                <label class="problema">
+                    <input
+                        type="checkbox"
+                        name="problemas"
+                        value="Mal olor"
+                    >
+                    <span>🌬️ Mal olor</span>
+                </label>
+
+                <label class="problema">
+                    <input
+                        type="checkbox"
+                        name="problemas"
+                        value="Espacio cerrado"
+                    >
+                    <span>🚪 Espacio cerrado</span>
+                </label>
+
+                <label class="problema">
+                    <input
+                        type="checkbox"
+                        id="otroProblema"
+                        name="problemas"
+                        value="Otro"
+                    >
+                    <span>❓ Otro</span>
+                </label>
+
+            </div>
+
+        </div>
+
+        <!-- 6. Observaciones para Otro -->
+        <div
+            class="seccion"
+            id="seccionObservaciones"
+            style="display: none;"
+        >
+
+            <h2>6. Observaciones</h2>
+
+            <label for="observaciones">
+                Describe el otro problema que encontraste
+            </label>
+
+            <textarea
+                id="observaciones"
+                name="observaciones"
+                placeholder="Especifica el problema..."
+            ></textarea>
+
+        </div>
+
+        <!-- 7. Evidencia -->
+        <div class="seccion">
+
+            <h2>7. Evidencia fotográfica</h2>
+
+            <div class="foto">
+
+                <p>
+                    📷 Adjunta fotografías que ayuden
+                    a identificar el problema.
+                </p>
+
+                <input
+                    type="file"
+                    id="fotografias"
+                    name="fotografias"
+                    accept="image/*"
+                    multiple
+                >
+
+                <p class="ayuda">
+                    Puedes seleccionar una o varias fotografías.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Botón -->
+        <button type="submit" class="boton">
+            ENVIAR REPORTE
+        </button>
+
+        <!-- Confirmación -->
+        <div
+            class="mensaje"
+            id="mensaje"
+            role="status"
+            aria-live="polite"
+        >
+            ✅ Reporte registrado correctamente.
+        </div>
+
+    </form>
+
+    <div class="pie">
+        Sistema Interactivo de Reportes de Baños
+    </div>
+
+</div>
+
+<script>
+
+    const formulario = document.getElementById("formulario");
+
+    const mensaje = document.getElementById("mensaje");
+
+    const fechaHora = document.getElementById("fechaHora");
+
+    const otroProblema = document.getElementById("otroProblema");
+
+    const seccionObservaciones =
+        document.getElementById("seccionObservaciones");
+
+    const observaciones =
+        document.getElementById("observaciones");
+
+
+    // Establecer fecha y hora local
+    function establecerFechaHora() {
+
+        const ahora = new Date();
+
+        const diferencia = ahora.getTimezoneOffset();
+
+        const fechaLocal = new Date(
+            ahora.getTime() - diferencia * 60000
+        );
+
+        fechaHora.value = fechaLocal
+            .toISOString()
+            .slice(0, 16);
+
+    }
+
+
+    // Mostrar u ocultar observaciones
+    function mostrarObservaciones() {
+
+        if (otroProblema.checked) {
+
+            seccionObservaciones.style.display = "block";
+
+            observaciones.required = true;
+
+        } else {
+
+            seccionObservaciones.style.display = "none";
+
+            observaciones.required = false;
+
+            observaciones.value = "";
+
+        }
+
+    }
+
+
+    // Fecha y hora al abrir la página
+    establecerFechaHora();
+
+
+    // Detectar selección de Otro
+    otroProblema.addEventListener(
+        "change",
+        mostrarObservaciones
+    );
+
+
+    // Enviar reporte
+    formulario.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        mensaje.style.display = "none";
+
+        // Validar campos obligatorios
+        if (!formulario.checkValidity()) {
+
+            formulario.reportValidity();
+
+            return;
+
+        }
+
+        // Verificar que se haya seleccionado algún problema
+        const problemasSeleccionados =
+            document.querySelectorAll(
+                'input[name="problemas"]:checked'
+            );
+
+        if (problemasSeleccionados.length === 0) {
+
+            alert("Selecciona al menos un problema.");
+
+            return;
+
+        }
+
+        // Mostrar confirmación
+        mensaje.textContent =
+            "✅ Reporte registrado correctamente. Gracias por ayudarnos a mejorar las condiciones de los baños.";
+
+        mensaje.style.display = "block";
+
+        // Limpiar formulario
+        formulario.reset();
+
+        // Ocultar observaciones
+        seccionObservaciones.style.display = "none";
+
+        observaciones.required = false;
+
+        // Actualizar fecha y hora
+        establecerFechaHora();
+
+    });
+
+</script>
+
+</body>
+</html>
